@@ -39,7 +39,3 @@
   added = yellow
   changed = green
   untracked = cyan
-
-[github]
-  user = diegoeis
-  token = b5af1dc2388f728848b6514329c9da9b36a31455
