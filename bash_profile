@@ -1,6 +1,4 @@
 export PGHOST=localhost
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 export GREP_OPTIONS="--color=auto"
 export GREP_COLOR="4;33"
@@ -8,6 +6,7 @@ export CLICOLOR="auto"
 
 alias ls="ls -G"
 alias mvim="/Applications/MacVim.app/contents/MacOS/MacVim"
+alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 
 # System-wide .bashrc file for interactive bash(1) shells.
 if [ -z "$PS1" ]; then
@@ -44,3 +43,16 @@ fi
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
 export PATH=/usr/local/mysql/bin:$PATH
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+vsc () {
+  if [[ $# = 0 ]]
+  then
+    open -a "Visual Studio Code" -n
+  else
+    [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
+    open -a "Visual Studio Code" -n --args "$F"
+  fi
+}
+
